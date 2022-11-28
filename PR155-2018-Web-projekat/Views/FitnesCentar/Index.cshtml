@@ -1,0 +1,94 @@
+﻿@model IEnumerable<PR155_2018_Web_projekat.Models.FitnesCentar>
+
+<link rel="stylesheet" href="~/CSS/dizajn.css"  type="text/css"/>
+
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+<h3>Prikaz svih fitnes centara</h3>
+
+
+<table border="1">
+    <tr>
+        <th>Naziv</th>
+        <th>Adresa</th>
+        <th>Godina otvaranja</th>
+        <th>&nbsp;</th>
+    </tr>
+    @foreach (PR155_2018_Web_projekat.Models.FitnesCentar fc in Model)
+    {
+        <tr>
+            <td>@fc.NazivFC</td>
+            <td>@string.Format(@fc.Adresa.Ulica + " " + @fc.Adresa.Broj + " " + @fc.Adresa.Grad + " " + @fc.Adresa.PostanskiBr)</td>
+            <td>@fc.GodinaOtvaranja</td>
+            <td>
+                <form method="post" action="~/FitnesCentar/Details">
+                    <input type="submit" value="Detalji">
+                    <input type="hidden" name="NazivFC" value="@fc.NazivFC" />
+                </form>
+            </td>
+
+            
+            <td>
+                <form method="post" action="~/FitnesCentar/PrikaziGT">
+                    <input type="submit" value="Izaberi">
+                    <input type="hidden" name="NazivFC" value="@fc.NazivFC" />
+                </form>
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+
+
+<hr />
+<form method="post" action="~/FitnesCentar/PretragaPoNazivu">
+    Pretrazi po nazivu: <input type="text" class="search" name="NazivFc" />
+    <input type="submit" value="Pretraga" />
+</form>
+
+<form method="post" action="~/FitnesCentar/PretragaPoAdresi">
+    Pretrazi po adresi: <input type="text" class="search" name="Adresa" />
+    <input type="submit" value="Pretraga" />
+</form>
+
+<form method="post" action="~/FitnesCentar/PretragaPoGodiniOtvaranja">
+    Pretrazi po godini otvaranja: <br />
+    OD:  <input type="number" min="2000" step="1" name="donjaGranica" value="2000" /><br />
+    DO: <input type="number" max="2022" step="1" name="gornjaGranica" value="2022" /><br />
+    <input type="submit" value="Pretraga" />
+</form>
+
+<form method="post" action="~/FitnesCentar/KombinovanaPretraga">
+    Kombinovana pretraga: <br />
+    Unesi naziv fitnes centra: <input type="text" class="search" name="nazivfc" /><br />
+    Unesi grad:<input type="text" class="search" name="grad" /><br />
+    Unesi godinu otvaranja: <input type="text" class="search" name="godinaOtvaranja" />
+    <input type="submit" value="Pretrazi" />
+</form>
+
+<hr />
+<form method="get" action="~/FitnesCentar/SortirajPoNazivu">
+    <input type="submit" value="Sort-Naziv-Rastuce" />
+</form>
+<form method="get" action="~/FitnesCentar/SortirajPoNazivu2">
+    <input type="submit" value="Sort-Naziv-Opadajuce" />
+</form>
+<form method="get" action="~/FitnesCentar/SortirajPoAdresi">
+    <input type="submit" value="Sort-Adresa-Rastuce" />
+</form>
+<form method="get" action="~/FitnesCentar/SortirajPoAdresi2">
+    <input type="submit" value="Sort-Adresa-Opadajuce" />
+</form>
+<form method="get" action="~/FitnesCentar/SortirajGodiniOtvaranja">
+    <input type="submit" value="Sort-GodinaOtvaranja-Rastuce" />
+</form>
+<form method="get" action="~/FitnesCentar/SortirajGodiniOtvaranja2">
+    <input type="submit" value="Sort-GodinaOtvaranja-Opadajuce" />
+</form>
+
+

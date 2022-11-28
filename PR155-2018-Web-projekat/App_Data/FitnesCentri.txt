@@ -1,0 +1,11 @@
+A;A;0;grad;00000;2001;0;0;0;0;0;vlasnik;False;
+Aluminijum;Puskinova;40;NoviSad;21000;2022;1000;10000;100;100;0;vlasnik2;False;
+B;B;0;grad;00000;2001;0;0;0;0;0;vlasnik2;False;
+C;C;0;grad;00000;2001;0;0;0;0;0;vlasnik;False;
+Cezar;DjureJaksica;1;Leskovac;16000;1998;900;5000;50;50;100;vlasnik;False;
+FitnesCentar1;MihajlaPupina;18;NoviSad;21000;2017;3800;20000;500;500;1000;vlasnik;False;
+FitnesCentar2;VojvodeMisica;19;Beograd;11000;2011;4000;30000;800;850;1500;vlasnik2;False;
+FitnesCentar3;Tolstojeva;11;Beograd;11000;2020;2000;1500;12000;100;150;vlasnik;False;
+GymFitnes;NekaUlica;0;NekiGrad;00000;2025;100;100;100;100;100;vlasnik2;False;
+NoviFC;NoviFC;0;BG;11111;2000;0;0;0;0;0;vlasnik;False;
+ProbaFC;ProbaFC;0;Novi Sad;22222;2000;0;0;0;0;0;vlasnik;False;

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PR155_2018_Web_projekat.Models.Korisnik>
+@{
+    ViewBag.Title = "KorisniciTXT";
+}
+
+<h2>KorisniciTXT</h2>
+
+<table border="1">
+    <tr>
+        <th>Korisnicko Ime</th>
+        <th>Lozinka</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Pol</th>
+        <th>Email</th>
+        <th>Datum rodjenja</th>
+        <th>Uloga</th>
+        <th>Lista treninga</th>
+        <th>Fitnes centar</th>
+        <th>proba</th>
+
+
+    </tr>
+    @foreach (PR155_2018_Web_projekat.Models.Korisnik k in Model)
+    {
+    <tr>
+        <td>@k.KorisnickoIme</td>
+        <td>@k.Lozinka</td>
+        <td>@k.Ime</td>
+        <td>@k.Prezime</td>
+        <td>@k.Pol</td>
+        <td>@k.Email</td>
+        <td>@k.DatumRodjenja</td>
+        <td>@k.Uloga</td>
+        <td>@k.ListaTreninga.Count</td>
+        <td>@k.FitnesCentar.Count</td>
+
+        
+
+
+
+
+    </tr>
+    }
+
+
+</table>
+

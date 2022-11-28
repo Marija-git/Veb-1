@@ -1,0 +1,82 @@
+﻿@using PR155_2018_Web_projekat.Models
+<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@{
+    ViewBag.Title = "RegistrujTrenera";
+}
+
+<h2>RegistrujTrenera</h2>
+<p> @ViewBag.korisnik.KorisnickoIme</p>
+
+<form action="~/Vlasnik/Registracija" method="post">
+    <table>
+        <tr>
+            <td>Korisnicko ime(trenera)</td>
+            <td><input type="text" name="korisnickoIme" /> </td>
+        </tr>
+        <tr>
+            <td>Lozinka(trenera)</td>
+            <td><input type="text" name="lozinka" /></td>
+        </tr>
+        <tr>
+            <td>Ime(trenera)</td>
+            <td><input type="text" name="ime" /> </td>
+        </tr>
+        <tr>
+            <td>Prezime(trener)</td>
+            <td><input type="text" name="prezime" /> </td>
+        </tr>
+        <tr>
+            <td>Pol(trenera)</td>
+            <td>
+                <input list="pol" name="pol" />
+                <datalist id="pol">
+                    <option value="Musko"></option>
+                    <option value="Zensko"></option>
+                    <option value="Ostalo"></option>
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+            <td>Email(trenera)</td>
+            <td><input type="email" name="email" /></td>
+        </tr>
+
+        <tr>
+
+            <td>Datum rodjenja</td>
+            <td><input type="date" name="DatumRodjenja" /> </td>
+        </tr>
+
+        <tr>
+
+            <td>Dodeli mu fitnes centar</td>
+            <td>
+                <input list="fc" name="FitnesCentar" />
+
+                <datalist id="fc">
+
+                    @foreach (string s in ViewBag.korisnik.FitnesCentar)
+                    {
+                        <option value="@s"></option>
+                      
+                    }
+
+
+
+                </datalist>
+
+            </td>
+
+
+
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="registruj" />
+            </td>
+        </tr>
+
+
+    </table>
+</form>

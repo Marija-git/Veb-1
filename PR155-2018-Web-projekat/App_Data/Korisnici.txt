@@ -1,0 +1,16 @@
+marija;marija;marija;marija;Zensko;marija@gmail.com;POSETILAC;11/11/2011 12:00:00 AM;A,GTAA,B,GTB,D,E,FGTF,GGTFHH3;
+w;w;w;w;Ostalo;w@gmail.com;POSETILAC;11/11/2011 12:00:00 AM;GTAA,B,C,CGT1;
+e;e;e;e;Musko;e@gmail.com;POSETILAC;11/11/2011 12:00:00 AM;GTAA,GTB,DGTDD,masinTrening;
+v;v;v;v;Zensko;v@gmail.com;POSETILAC;11/11/2011 12:00:00 AM;;
+masa;masa;masa;masa;Zensko;masa@gmail.com;POSETILAC;10/11/2000 12:00:00 AM;,AGT;
+trener;trener;trener;trener;Musko;trener@gmail.com;TRENER;10/12/2000 12:00:00 AM;A,AGT,B,BB,GTB,C,novi2;FitnesCentar3,FitnesCentar1,FitnesCentar2
+a;a;a;a;Zensko;marijajovanovic1599@gmail.com;POSETILAC;12/12/2012 12:00:00 AM;;
+z;z;z;z;Zensko;marijajovanovic1599@gmail.com;POSETILAC;12/12/2018 12:00:00 AM;;
+new;new;new;new;Ostalo;new@gmail.com;POSETILAC;10/10/2010 12:00:00 AM;;
+b;b;b;b;Zensko;marijajovanovic1599@gmail.com;POSETILAC;11/11/2019 12:00:00 AM;NovoKreirani1;
+vlasnik;vlasnik;vlasnik;vlasnik;Zensko;vlasnik@gmail.com;VLASNIK;10/10/1999 12:00:00 AM;;A,C,Cezar,FitnesCentar1,FitnesCentar3,ProbaFC,NoviFC
+vlasnik2;vlasnik2;vlasnik2;vlasnik2;Musko;vlasnik2@gmail.com;VLASNIK;11/11/2000 12:00:00 AM;;Aluminijum,B,FitnesCentar2,GymFitnes
+noviTrener;noviTrener;noviTrener;noviTrener;Musko;noviTrener@gmail.com;TRENER;12/12/2008 12:00:00 AM;GCA,GA1,GCA2,GGTF;A
+MasaTrener;MasaTrener;MasaTrener;MasaTrener;Zensko;marijajovanovic1599@gmail.com;TRENER;11/12/2012 12:00:00 AM;K,K2,K22,KK,NovoKreirani1,novi2,masinTrening;C
+TRENER;TRENER;TRENER;TRENER;Musko;t@gmail.com;TRENER;10/10/2010 12:00:00 AM;probaTR;ProbaFC
+couch;couch;couch;couch;Musko;c@gmail.com;TRENER;11/11/2011 12:00:00 AM;E,E1,E2,E3;Cezar

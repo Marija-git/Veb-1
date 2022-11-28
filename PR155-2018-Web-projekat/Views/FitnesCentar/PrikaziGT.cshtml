@@ -1,0 +1,170 @@
+﻿@using PR155_2018_Web_projekat.Models
+@model PR155_2018_Web_projekat.Models.GrupniTrening
+<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+
+@{
+    ViewBag.Title = "PrikaziGT";
+}
+
+
+<h2>PrikaziGT</h2>
+<h3>Prikaz buducih grupnih treninga za  izabrani  Fitnes Centar @ViewBag.Message </h3>
+
+<table border="1">
+    <tr>
+        <th>Naziv</th>
+        <th>Tip treninga</th>
+        <th>Trajanje</th>
+        <th>Max broj posetilaca</th>
+
+        <th>Fitnes Centar</th>
+        <th>Datum(termin)</th>
+        <th>Prijavljeni posetioci</th>
+        <th>Is Deleted check</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    @foreach (GrupniTrening gt in @ViewBag.model)
+    {
+        if ((@gt.Termin.CompareTo(DateTime.Now)) > 0 && @gt.Fc.NazivFC == @ViewBag.Message)
+        {
+            <tr>
+                <td>@gt.NazivGT</td>
+                <td>@gt.Tip</td>
+                <td>@gt.Trajanje</td>
+                <td>@gt.MaxPosetilaca</td>
+                <td>@gt.Fc.NazivFC</td>
+                <td>@gt.Termin</td>
+
+                @if(gt.Posetioci[0]=="XXX")
+                {
+                    <td>0</td>
+                }
+                else
+                {
+                    <td>@gt.Posetioci.Count</td>
+                }
+
+                <td>@gt.IsDeleted</td>
+
+                @if (@gt.Posetioci.Count < @gt.MaxPosetilaca && gt.IsDeleted!=true)
+                {
+                    <td>
+                        <form method="post" action="~/FitnesCentar/PrijaviSe">
+                            <input type="submit" value="Prijavi se" />
+                            <input type="hidden" name="NazivGT" value="@gt.NazivGT" />
+                        </form>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Nema vise mesta za prijavu <br />
+                        ili je trening obrisan <br />
+                        <a href="~/FitnesCentar/Index">Nazad na pocetnu</a>
+                    </td>
+                }
+
+
+
+            </tr>
+        }
+
+    }
+
+</table>
+
+<br />
+<hr />
+<h3>Prikaz grupnih treninga na kojima si ranije ucestvovao </h3>
+
+
+
+<table border="1">
+
+    <tr>
+        <th>Naziv</th>
+        <th>Tip treninga</th>
+        <th>Trajanje</th>
+        <th>Max broj posetilaca</th>
+
+        <th>Fitnes Centar</th>
+        <th>Datum(termin)</th>
+        <th>Prijavljeni posetioci</th>
+       
+    </tr>
+
+
+    @foreach (GrupniTrening gt in @ViewBag.model)
+    {
+        if ((@gt.Termin.CompareTo(DateTime.Now)) < 0 && (@ViewBag.Korisnik.ListaTreninga.Contains(@gt.NazivGT)))
+        {
+            <tr>
+                <td>@gt.NazivGT</td>
+                <td>@gt.Tip</td>
+                <td>@gt.Trajanje</td>
+                <td>@gt.MaxPosetilaca</td>
+                <td>@gt.Fc.NazivFC</td>
+                <td>@gt.Termin</td>
+
+                
+                @if(gt.Posetioci[0] == "XXX")
+                {
+                    <td>0</td>
+                }else
+                {
+                    <td>@gt.Posetioci.Count</td>
+                }
+
+
+
+            </tr>
+        }
+       
+    }
+
+</table>
+
+<hr />
+<form method="post" action="~/GrupniTrening/PretragaPoNazivu">
+    Pretrazi po nazivu grupnog treninga: <input type="text" class="search" name="NazivGT" />
+    <input type="submit" value="Pretraga-Naziv-GT" />
+</form>
+
+<form method="post" action="~/GrupniTrening/PretragaPoNazivuFitnesCentra">
+    Pretrazi po nazivu fitnes centra: <input type="text" class="search" name="nekinazivfc" />
+    <input type="submit" value="Pretraga-Naziv-FC" />
+</form>
+
+<form method="post" action="~/GrupniTrening/PretragaPoTipuTreninga">
+    Pretrazi po  tip treninga: <input type="text" class="search" name="tiptreninga" />
+    <input type="submit" value="Pretraga-Tip-Treninga" />
+</form>
+<hr />
+<form method="post" action="~/GrupniTrening/KombinovanaPretraga">
+    Kombinovana pretraga: <br />
+    Unesi naziv grupnog treninga: <input type="text" class="search" name="NazivGT" /><br />
+    Unesi naziv fitnes centra:<input type="text" class="search" name="nekinazivfc" /><br />
+    Unesi tip treninga: <input type="text" class="search" name="tiptreninga" />
+    <input type="submit" value="Pretrazi" />
+</form>
+
+<hr />
+<form method="get" action="~/GrupniTrening/SortirajPoNazivu">
+    <input type="submit" value="Sort-Naziv-Rastuce" />
+</form>
+<form method="get" action="~/GrupniTrening/SortirajPoNazivu2">
+    <input type="submit" value="Sort-Naziv-Opadajuce" />
+</form>
+<form method="get" action="~/GrupniTrening/SortirajPoTipuTreninga">
+    <input type="submit" value="Sort-Tip-Rastuce" />
+</form>
+<form method="get" action="~/GrupniTrening/SortirajPoTipuTreninga2">
+    <input type="submit" value="Sort-Tip-Opadajuce" />
+</form>
+<form method="get" action="~/GrupniTrening/SortirajPoDatumu">
+    <input type="submit" value="Sort-Datum-Rastuce" />
+</form>
+<form method="get" action="~/GrupniTrening/SortirajPoDatumu2">
+    <input type="submit" value="Sort-Datum-Opadajuce" />
+</form>

@@ -1,0 +1,76 @@
+﻿@using PR155_2018_Web_projekat.Models
+<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form method="post" action="~/Vlasnik/RegistrujTrenera">
+    <input type="submit" value="Registruj trenera" />
+</form>
+
+<form method="post" action="~/Vlasnik/BlokirajTrenera">
+    <input type="text" name="imeTrenera" />
+    <input type="submit" value="Blokiraj trenera">
+      
+</form>
+
+<form method="post" action="~/Vlasnik/KreirajFC">
+    <input type="submit" value="Kreiraj Fitnes Centar" />
+</form>
+
+
+<h3>Prikaz fitnes centara ciji si vlasnik</h3>
+
+<table border="1">
+    <tr>
+        <th>Naziv</th>
+        <th>Adresa</th>
+        <th>Godina otvaranja</th>
+        <th>IsDeleted</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
+
+    @foreach (FitnesCentar fc in @ViewBag.fitnesCentri)
+    {
+        foreach (string s in ViewBag.Korisnik.FitnesCentar)
+        {
+            if (fc.NazivFC == s)
+            {
+                <tr>
+                    <td>@fc.NazivFC</td>
+                    <td>@string.Format(@fc.Adresa.Ulica + " " + @fc.Adresa.Broj + " " + @fc.Adresa.Grad + " " + @fc.Adresa.PostanskiBr)</td>
+                    <td>@fc.GodinaOtvaranja</td>
+                    <td>@fc.IsDeleted</td>
+
+
+                    <td>
+                        <form method="post" action="~/Vlasnik/ObrisiFitnesCentar">
+                            <input type="submit" value="Obrisi" />
+                            <input type="hidden" name="NazivFC" value="@fc.NazivFC" />
+                        </form>
+                    </td>
+
+                    <td>
+                        <form method="post" action="~/Vlasnik/ModifikujFC">
+                            <input type="submit" value="modifikuj" />
+                            <input  type="hidden" name="NazivFC" value="@fc.NazivFC" />
+                        </form>
+                    </td>
+
+
+
+
+
+
+
+
+                </tr>
+
+            }
+        }
+    }
+
+</table>

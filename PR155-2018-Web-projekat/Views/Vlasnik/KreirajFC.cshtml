@@ -1,0 +1,81 @@
+﻿<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@{
+    ViewBag.Title = "KreirajFC";
+}
+
+<h2>KreirajFC</h2>
+
+<form method="post" action="~/Vlasnik/KreiranjeFitnesCentra">
+    <table border="1">
+
+        <tr>
+            <td>Naziv fitnes centra:</td>
+            <td>
+                <input type="text" name="NazivFc" />
+            </td>
+        </tr>
+        <tr>
+            <td>Ulica:</td>
+            <td>
+                <input type="text" name="Ulica " />
+            </td>
+        </tr>
+        <tr>
+            <td>Broj:</td>
+            <td>
+                <input type="text" name="Broj " />
+            </td>
+        </tr>
+        <tr>
+            <td>Grad:</td>
+            <td>
+                <input type="text" name="Grad " />
+            </td>
+        </tr>
+        <tr>
+            <td>Postanski broj:</td>
+            <td>
+                <input type="text" name="PostanskiBr " />
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Mesecna clanarina:</td>
+            <td>
+                <input type="text" name="mesecnaClanarina " />
+            </td>
+        </tr>
+        <tr>
+            <td>Godisnja clanarina:</td>
+            <td>
+                <input type="text" name="godisnjaClanarina " />
+            </td>
+        </tr>
+        <tr>
+            <td>Cena trening:</td>
+            <td>
+                <input type="text" name="cenaTreninga " />
+            </td>
+        </tr>
+        <tr>
+            <td>Cena grupnog treninga:</td>
+            <td>
+                <input type="text" name="cenaGrupnogTreninga " />
+            </td>
+        </tr>
+        <tr>
+            <td>Cena individualnog treninga:</td>
+            <td>
+                <input type="text" name="cenaIndividualnogTreninga " />
+            </td>
+        </tr>
+       
+      
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <input type="submit" value="Kreiraj" />
+            </td>
+        </tr>
+
+    </table>
+</form>

@@ -1,0 +1,34 @@
+﻿@using PR155_2018_Web_projekat.Models
+<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@{
+    ViewBag.Title = "Posetioci";
+}
+
+<h2>Posetioci</h2>
+
+
+<table border="1">
+    <tr>
+        <th>Korisnicko ime</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Pol</th>
+        <th>Email</th>
+        <th>DatumRodjenja</th>
+    </tr>
+
+    @foreach (Korisnik k in @ViewBag.model)
+    {
+        <tr>
+            <td>@k.KorisnickoIme</td>
+            <td>@k.Ime</td>
+            <td>@k.Prezime</td>
+            <td>@k.Pol</td>
+            <td>@k.Email</td>
+            <td>@k.DatumRodjenja</td>
+        </tr>
+    }
+
+</table>
+
+<a href="~/Trener/Index">Nazad</a>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PR155_2018_Web_projekat.Models.GrupniTrening>
+<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@{
+    ViewBag.Title = "Pretraga";
+}
+
+<h2>Pretraga</h2>
+<table border="1">
+    <tr>
+        <th>Naziv</th>
+        <th>Tip</th>
+        <th>Trajanje</th>
+        <th>Max posetilaca</th>
+        <th>Fitnes centar</th>
+        <th>Datum</th>
+        <th>Prijavljeni posetioci</th>
+
+    </tr>
+
+    @foreach (PR155_2018_Web_projekat.Models.GrupniTrening gt in Model)
+    {
+        if ((@gt.Termin.CompareTo(DateTime.Now)) < 0)
+        {
+
+
+             <tr>
+                <td>@gt.NazivGT</td>
+                <td>@gt.Tip</td>
+                <td>@gt.Trajanje</td>
+                <td>@gt.MaxPosetilaca</td>
+                <td>@gt.Fc.NazivFC</td>
+                <td>@gt.Termin</td>
+                <td>@gt.Posetioci.Count</td>
+             </tr>
+        }
+    }
+
+</table>
+
+<a href="~/FitnesCentar/PrikaziGT">Nazad</a>

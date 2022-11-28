@@ -1,0 +1,52 @@
+﻿@model PR155_2018_Web_projekat.Models.Korisnik
+<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h3>Izmeni profil</h3>
+
+<form action="~/Korisnik/IzmeniProfil" method="post">
+    <table>
+        <tr>
+            <td>Lozinka</td>
+            <td><input type="text" name="lozinka" value="@Model.Lozinka" /> </td>
+        </tr>
+        <tr>
+            <td>Ime</td>
+            <td><input type="text" name="ime" value="@Model.Ime" /> </td>
+        </tr>
+        <tr>
+            <td>Prezime</td>
+            <td><input type="text" name="prezime" value="@Model.Prezime" /> </td>
+        </tr>
+        <tr>
+            <td>Pol</td>
+            <td>
+                <input list="pol" name="pol" value="@Model.Pol" />
+                <datalist id="pol">
+                    <option value="Musko"></option>
+                    <option value="Zensko"></option>
+                    <option value="Ostalo"></option>
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+
+            <td>Datum rodjenja</td>
+            <td><input type="date" name="DatumRodjenja" value="@Model.DatumRodjenja.ToString("yyyy-MM-dd")" /> </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="izmeni" />
+                <input type="hidden" name="KorisnickoIme" value="@Model.KorisnickoIme" />
+            </td>
+        </tr>
+
+
+    </table>
+</form>
+
+<a href="~/FitnesCentar/Index">Nazad</a>

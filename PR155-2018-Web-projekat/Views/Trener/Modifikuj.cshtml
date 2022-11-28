@@ -1,0 +1,44 @@
+﻿<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@{
+    ViewBag.Title = "Modifikuj";
+}
+
+<h2>Modifikuj grupni trening</h2>
+<p>@ViewBag.model.NazivGT</p> 
+
+<form action="~/Trener/IzmeniGrupniTrening" method="post">
+    <table>
+
+        <tr>
+            <td>Tip treninga</td>
+            <td>
+                <input list="tip" name="tip" value="@ViewBag.model.Tip" />
+                <datalist id="tip">
+                    <option value="Yoga"></option>
+                    <option value="LesMillsTone"></option>
+                    <option value="BodyPump"></option>
+                </datalist>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Trajanje</td>
+            <td><input type="number" name="trajanje" value="@ViewBag.model.Trajanje" /></td>
+        </tr>
+
+        <tr>
+            <td>Datum i vreme</td>
+            <td><input type="date" name="termin" value="@ViewBag.model.Termin.ToString("yyyy-MM-dd")" /></td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="izmena" />
+                <input type="hidden" name="NazivGT" value="@ViewBag.model.NazivGT" />
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+<a href="~/Trener/Index">Nazad</a>

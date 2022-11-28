@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "ModifikujFC";
+}
+
+<h2>ModifikujFC</h2>
+<p>@ViewBag.model.NazivFC</p>
+<form method="post" action="~/Vlasnik/Modifikacija">
+    <table>
+
+        <tr>
+            <td>Ulica</td>
+            <td>
+                <input type="text" name="ulica" value="@ViewBag.model.Adresa.Ulica" />
+            </td>
+        </tr>
+        <tr>
+            <td>Broj</td>
+            <td>
+                <input type="text" name="broj" value="@ViewBag.model.Adresa.Broj" />
+            </td>
+        </tr>
+        <tr>
+            <td>Grad</td>
+            <td>
+                <input type="text" name="grad" value="@ViewBag.model.Adresa.Grad" />
+            </td>
+        </tr>
+        <tr>
+            <td>Postanski broj</td>
+            <td>
+                <input type="text" name="postanskiBr" value="@ViewBag.model.Adresa.PostanskiBr" />
+            </td>
+        </tr>
+        <tr>
+            <td>Mesecna clanarina</td>
+            <td>
+                <input type="text" name="mesecnaClanarina" value="@ViewBag.model.MesecnaClanarina" />
+            </td>
+        </tr>
+        <tr>
+            <td>Godisnja clanarina</td>
+            <td>
+                <input type="text" name="godisnjaClanarina" value="@ViewBag.model.GodisnjaClanarina" />
+            </td>
+        </tr>
+        <tr>
+            <td>Cena treninga</td>
+            <td>
+                <input type="text" name="cenaTreninga" value="@ViewBag.model.CenaTreninga" />
+            </td>
+        </tr>
+        <tr>
+            <td>Cena grupnog treninga</td>
+            <td>
+                <input type="text" name="cenaGrupnogTreninga" value="@ViewBag.model.CenaGrupnogTreninga" />
+            </td>
+        </tr>
+        <tr>
+            <td>Cena individualnog treninga</td>
+            <td>
+                <input type="text" name="cenaIndividualnogTreninga" value="@ViewBag.model.CenaIndividualnogTreninga" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="izmena" />
+                <input type="hidden" name="NazivFC" value="@ViewBag.model.NazivFC" />
+            </td>
+        </tr>
+       
+
+    </table>
+</form>

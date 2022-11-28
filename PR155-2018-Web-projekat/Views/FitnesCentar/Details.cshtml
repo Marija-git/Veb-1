@@ -1,0 +1,116 @@
+﻿@using PR155_2018_Web_projekat.Models
+<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@model PR155_2018_Web_projekat.Models.FitnesCentar
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detaljni prikaz Fitnes Centra</h2>
+<h4>Sve infomracije</h4>
+<hr />
+
+
+
+<table>
+    <tr>
+        <td>Naziv Fitnes Centra:</td>
+        <td>@Model.NazivFC</td>
+    </tr>
+    <tr>
+        <td>Adresa:</td>
+        <td>@string.Format(@Model.Adresa.Ulica + " " + @Model.Adresa.Broj + " " + @Model.Adresa.Grad + " " + @Model.Adresa.PostanskiBr)</td>
+
+    </tr>
+    <tr>
+        <td>Godina otvranja fitnces centra:</td>
+        <td>@Model.GodinaOtvaranja</td>
+    </tr>
+
+    <tr>
+        <td>Cena mesecne clanarine:</td>
+        <td>@Model.MesecnaClanarina</td>
+
+    </tr>
+    <tr>
+        <td>Cena godisnje clanarine:</td>
+        <td>@Model.GodisnjaClanarina</td>
+
+    </tr>
+    <tr>
+        <td>Cena jednog treninga:</td>
+        <td>@Model.CenaTreninga</td>
+
+    </tr>
+    <tr>
+        <td>Cena grupnog treninga:</td>
+        <td>@Model.CenaGrupnogTreninga</td>
+    </tr>
+    <tr>
+        <td>Cena individualnog treninga:</td>
+        <td>@Model.CenaIndividualnogTreninga</td>
+    </tr>
+    <tr>
+        <td>Vlasnik:</td>
+        <td>@Model.Vlasnik.KorisnickoIme</td>
+
+    </tr>
+</table>
+
+
+<hr />
+<table border="1">
+    <tr>
+        <th>Naziv</th>
+        <th>Tip treninga</th>
+        <th>Trajanje</th>
+        <th>Max broj posetilaca</th>
+
+        <th>Fitnes Centar</th>
+        <th>Datum(termin)</th>
+        <th>Prijavljeni posetioci</th>
+        <th>IsDeleted</th>
+    </tr>
+
+    @foreach (GrupniTrening gt in @ViewBag.model)
+    {
+        if ((@gt.Termin.CompareTo(DateTime.Now)) > 0)
+        {
+    <tr>
+        <td>@gt.NazivGT</td>
+        <td>@gt.Tip</td>
+        <td>@gt.Trajanje</td>
+        <td>@gt.MaxPosetilaca</td>
+        <td>@gt.Fc.NazivFC</td>
+        <td>@gt.Termin</td>
+
+        @if (gt.Posetioci[0] == "XXX")
+        {
+            <td>0</td>
+        }
+        else
+        {
+          <td>@gt.Posetioci.Count</td>
+        }
+
+        <td>@gt.IsDeleted</td>
+
+
+
+
+
+    </tr>
+        }
+
+    }
+
+</table>
+
+<form method="get" action="~/FitnesCentar/Komentari">
+    <input type="submit" value="Komentari" />
+</form>
+
+<form method="get" action="~/FitnesCentar/Index">
+    <input type="submit" value="Nazad" />
+    <input type="hidden" name="NazivFC" value="@Model.NazivFC" />
+</form>
+

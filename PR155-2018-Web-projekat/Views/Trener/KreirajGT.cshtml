@@ -1,0 +1,51 @@
+﻿<link rel="stylesheet" href="~/CSS/dizajn.css" type="text/css" />
+@{
+    ViewBag.Title = "KreirajGT";
+}
+
+<h2>KreirajGT</h2>
+
+<form method="post" action="~/Trener/KreiranjeGrupnogTreninga">
+  <table>
+
+      <tr>
+          <td>Naziv grupnog treninga:</td>
+          <td><input type="text" name="nazivGT" /></td>
+      </tr>
+      <tr>
+          <td>Tip treninga:</td>
+          <td><input list="tip" name="tip"/>
+              <datalist id="tip">
+                  <option value="Yoga"></option>
+                  <option value="LesMillsTone"></option>
+                  <option value="BodyPump"></option>
+              </datalist>
+          </td>
+      </tr>
+      <tr>
+          <td>Trajanje:</td>
+          <td><input type="number" name="trajanje" /></td>
+      </tr>
+      <tr>
+          <td>Max posetilaca:</td>
+          <td><input type="number" name="maxPosetilaca"</td>
+      </tr>
+      <tr>
+          <td>Fitnes Centar</td>
+          <td><input type="text" name="nazivFC" /></td>
+      </tr>
+      <tr>
+          <td>Termin</td>
+          <td><input type="date" name="termin" /></td>
+      </tr>
+           
+      <tr>
+          <td>
+              
+              <input type="submit" value="kreiraj" />
+             
+          </td>
+      </tr>
+
+  </table>
+</form>
